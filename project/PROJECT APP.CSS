@@ -1,0 +1,25 @@
+/* App.css */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(to right, #ff8a80, #ea80fc);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: url('https://3.bp.blogspot.com/-9f4JANi03zA/WbIuJFXKNsI/AAAAAAAAADI/ABm1Uu6ncH4AEkPLRYW-PawnT6qbpC5JQCLcBGAs/s1600/Medical+records.jpg') center/cover fixed;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* Add other styles for the Drawer, Footer, and other components as needed */

@@ -1,0 +1,72 @@
+// Register.js
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import './Register.css';
+
+const Register = ({ onSwitchForm }) => {
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleFullNameChange = (e) => {
+    let inputName = e.target.value.slice(0, 8);
+
+    inputName = inputName.replace(/[^A-Z]/g, '');
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(inputName)) {
+      inputName += '!';
+    }
+
+    setFullName(inputName);
+    if (inputName.length !== 8 || !/[!@#$%^&*(),.?":{}|<>]/.test(inputName)) {
+      alert('Full Name must be exactly 8 characters with uppercase letters and at least one special character.');
+    }
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Registration submitted:', { fullName, email, password });
+  };
+  return (
+    <div>
+    
+      <h2 style={{fontSize:'40px'}}>WELCOME TO REGISTER PAGE</h2>
+      <form onSubmit={handleSubmit}>
+        <label style={{fontSize:'30px'}}>
+          Full Name:
+          <input type="text" value={fullName} onChange={handleFullNameChange} />
+        </label>
+        <br />
+        <label style={{fontSize:'30px'}}>
+          Email:
+          <br/>
+          <input type="email" value={email} onChange={handleEmailChange} />
+        </label>
+        <br />
+        <label style={{fontSize:'30px'}}>
+          Password:
+          <input type="password" value={password} onChange={handlePasswordChange} />
+        </label>
+        <br />
+        <button type="submit" style={{fontSize:'40px'}}>Register</button>
+      </form>
+      
+      {/* Add Login button that redirects to Login page */}
+      <p style={{fontSize:'40px'}}>
+       Want to login instead?{' '}
+        <Link to="/login" style={{ color: 'blue',fontSize:'40px'}}>
+          Login
+        </Link>
+      </p>
+    </div>
+  );
+};
+
+export default Register;

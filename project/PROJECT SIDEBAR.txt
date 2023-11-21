@@ -1,0 +1,20 @@
+// src/components/Sidebar.js
+
+import React from 'react';
+import { Drawer, List, ListItem, ListItemText } from '@mui/material';
+import { Link } from 'react-router-dom';
+
+const Sidebar = () => {
+  return (
+    <Drawer variant="permanent" anchor="left">
+      <List>
+        <ListItem button component={Link} to="/">
+          <ListItemText primary="Home" />
+        </ListItem>
+        {/* Add more items as needed */}
+      </List>
+    </Drawer>
+  );
+};
+
+export default Sidebar;
